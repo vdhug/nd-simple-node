@@ -1,27 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-name: simple-node
-labels:
-  app: simple-node
+  name: my-app
+  labels:
+    app: my-app
 spec:
-replicas: 2
-selector:
-  matchLabels:
-    app: simple-node
-template:
-  metadata:
-    labels:
-      app: simple-node
-  spec:
-    containers:
-    - name: simple-node
-      image: vitorhugo/simple-node
-      ports:
-      - containerPort: 80
-    livenessProbe:
-      httpGet:
-        path: /health
-        port: 8080
-      initialDelaySeconds: 3
-      periodSeconds: 3
+  replicas: 2
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+      - name: simple-node
+        image: vitorhugo/simple-node
+        ports:
+        - containerPort: 80
