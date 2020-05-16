@@ -14,6 +14,10 @@ RUN npm install
 # Copy app source
 COPY . .
 
+# Environment variable to be set on build
+ARG NAME 
+ENV NAME=$NAME
+
 # Bind the port that the image will run on
 EXPOSE 8080
 
